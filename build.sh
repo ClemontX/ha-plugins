@@ -32,7 +32,7 @@ case "$1" in
         contents="$(jq --indent 4 '.slug = "ha-sip-next"' $CONFIG_JSON)" && echo -E "${contents}" > $CONFIG_JSON
         contents="$(jq --indent 4 '.url = env.NEXT_REPO_URL' $CONFIG_JSON)" && echo -E "${contents}" > $CONFIG_JSON
         contents="$(jq --indent 4 '.description = "Home-Assistant SIP Gateway (next version)"' $CONFIG_JSON)" && echo -E "${contents}" > $CONFIG_JSON
-        contents="$(jq --indent 4 '.image = "agellhaus/{arch}-ha-sip-next"' $CONFIG_JSON)" && echo -E "${contents}" > $CONFIG_JSON
+        contents="$(jq --indent 4 '.image = "clemontx/{arch}-ha-sip-next"' $CONFIG_JSON)" && echo -E "${contents}" > $CONFIG_JSON
         # Change readme
         README=$TMP_URL/README.md
         sed -i -e 's/ha-plugins/ha-plugins-next/g' $README
@@ -57,7 +57,7 @@ case "$1" in
             homeassistant/amd64-builder:dev \
             --no-cache --amd64 \
             -t ha-sip -r $REPO_URL -b next \
-            --docker-user agellhaus --docker-password "$DOCKER_HUB_PASSWORD"
+            --docker-user clemontx --docker-password "$DOCKER_HUB_PASSWORD"
         ;;
     build-i386)
         echo "Building prod (all archs)..."
@@ -66,7 +66,7 @@ case "$1" in
             homeassistant/amd64-builder:dev \
             --no-cache --i386 \
             -t ha-sip -r $REPO_URL -b next \
-            --docker-user agellhaus --docker-password "$DOCKER_HUB_PASSWORD"
+            --docker-user clemontx --docker-password "$DOCKER_HUB_PASSWORD"
         ;;
     build-aarch64)
         echo "Building prod (all archs)..."
@@ -75,7 +75,7 @@ case "$1" in
             homeassistant/aarch64-builder:dev \
             --no-cache --aarch64 \
             -t ha-sip -r $REPO_URL -b next \
-            --docker-user agellhaus --docker-password "$DOCKER_HUB_PASSWORD"
+            --docker-user clemontx --docker-password "$DOCKER_HUB_PASSWORD"
         ;;
     build-armv7)
         echo "Building prod (all archs)..."
@@ -84,7 +84,7 @@ case "$1" in
             homeassistant/aarch64-builder:dev \
             --no-cache --armv7 \
             -t ha-sip -r $REPO_URL -b next \
-            --docker-user agellhaus --docker-password "$DOCKER_HUB_PASSWORD"
+            --docker-user clemontx --docker-password "$DOCKER_HUB_PASSWORD"
         ;;
     build-armhf)
         echo "Building prod (all archs)..."
@@ -93,7 +93,7 @@ case "$1" in
             homeassistant/aarch64-builder:dev \
             --no-cache --armhf \
             -t ha-sip -r $REPO_URL -b next \
-            --docker-user agellhaus --docker-password "$DOCKER_HUB_PASSWORD"
+            --docker-user clemontx --docker-password "$DOCKER_HUB_PASSWORD"
         ;;
     update)
         echo "Updating builder..."
