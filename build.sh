@@ -24,7 +24,7 @@ case "$1" in
         git clone -b next $REPO_URL $TMP_URL
         # Change repo
         REPO_JSON=$TMP_URL/repository.json
-        contents="$(jq --indent 4 '.name = "Home Assistant addons by Arne Gellhaus (next version)"' $REPO_JSON)" && echo -E "${contents}" > $REPO_JSON
+        contents="$(jq --indent 4 '.name = "Home Assistant addons by Clemontx (next version)"' $REPO_JSON)" && echo -E "${contents}" > $REPO_JSON
         contents="$(jq --indent 4 '.url = env.NEXT_REPO_URL' $REPO_JSON)" && echo -E "${contents}" > $REPO_JSON
         # Change config
         CONFIG_JSON=$TMP_URL/ha-sip/config.json
